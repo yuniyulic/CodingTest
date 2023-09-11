@@ -2,7 +2,7 @@ class Solution {
     public int solution(int price) {
         double answer = 0; // 지불해야 할 금액
 
-        if (price >= 500000 && price <= 1000000) {
+        if (price >= 500000) {
             answer = price - (price * 0.2); // 50만원 이상 구매 시 20% 할인
         } else if (price >= 300000) {
             answer = price - (price * 0.1); // 30만원 이상 구매 시 10% 할인
