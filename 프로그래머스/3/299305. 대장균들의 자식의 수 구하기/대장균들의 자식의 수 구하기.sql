@@ -1,0 +1,22 @@
+-- 다시
+
+SELECT
+    A.ID,
+    COALESCE(B.CNT,0) AS CHILD_COUNT
+FROM
+    ECOLI_DATA A
+LEFT JOIN (
+    SELECT
+        PARENT_ID,
+        COUNT(*) AS CNT
+    FROM
+        ECOLI_DATA
+    GROUP BY
+        PARENT_ID
+    HAVING
+        PARENT_ID IS NOT NULL
+    ) B
+ON A.ID = B.PARENT_ID
+ORDER BY A.ID
+;
+
